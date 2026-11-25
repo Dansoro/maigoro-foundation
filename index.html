@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barr. A.A. Maigoro Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0b4d3b;--green-d:#06342a;--gold:#c9a227;--gold-l:#f3e7c0;--cream:#faf7ef;--ink:#1d2521;--muted:#5d6a64}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.2}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1150px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;padding:13px 26px;border-radius:40px;font-weight:600;font-size:15px;transition:.2s}
+.btn-gold{background:var(--gold);color:var(--green-d)}
+.btn-gold:hover{background:#e0b935}
+.btn-line{border:1.5px solid #fff;color:#fff}
+.btn-line:hover{background:#fff;color:var(--green)}
+.tag{display:inline-block;color:var(--gold);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:12px;margin-bottom:10px}
+
+/* top bar + nav */
+.topbar{background:var(--green-d);color:#cfe0d8;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;padding:7px 20px;flex-wrap:wrap;gap:6px}
+nav{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 2px 14px rgba(0,0,0,.06)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:11px}
+.seal{width:46px;height:46px;border-radius:50%;background:var(--green);border:2px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-family:"Playfair Display",serif;font-weight:700;font-size:16px}
+.logo b{display:block;font-family:"Playfair Display",serif;font-size:17px;color:var(--green)}
+.logo small{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.links{display:flex;gap:26px;align-items:center;font-size:15px;font-weight:500}
+.links a:hover{color:var(--gold)}
+.menu{display:none;background:none;border:0;font-size:26px;color:var(--green);cursor:pointer}
+
+/* hero */
+.hero{background:linear-gradient(120deg,rgba(6,52,42,.95) 30%,rgba(11,77,59,.72)),url(images/school-assembly.jpg) center 35%/cover;color:#fff;padding:90px 0 110px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;bottom:-120px;width:420px;height:420px;border:2px solid rgba(201,162,39,.25);border-radius:50%}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(34px,5vw,56px);margin-bottom:18px}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:18px;color:#e4efe9;max-width:560px;margin-bottom:30px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:28px;backdrop-filter:blur(6px)}
+.hero-card h3{color:var(--gold);font-size:20px;margin-bottom:14px}
+.hero-card li{list-style:none;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:10px;font-size:15px}
+.hero-card li:last-child{border:0}
+
+/* stats */
+.stats{margin-top:-55px;position:relative;z-index:5}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.08);padding:30px 10px}
+.stat{text-align:center;border-right:1px solid #eee;padding:0 10px}
+.stat:nth-child(4){border:0}
+.stat-note{grid-column:1/-1;text-align:center;color:var(--muted);font-size:12px;margin-top:16px}
+.stat b{font-family:"Playfair Display",serif;font-size:36px;color:var(--green)}
+.stat span{display:block;color:var(--muted);font-size:14px}
+
+section{padding:90px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 50px}
+.head h2{font-size:clamp(28px,4vw,40px);color:var(--green);margin-bottom:12px}
+.head p{color:var(--muted)}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about h2{font-size:clamp(28px,4vw,40px);color:var(--green);margin-bottom:18px}
+.about p{color:var(--muted);margin-bottom:16px}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.mv div{background:#fff;border-left:4px solid var(--gold);padding:18px;border-radius:10px}
+.mv h4{color:var(--green);margin-bottom:6px}
+.mv p{font-size:14px;margin:0}
+.about-img{height:420px;border-radius:20px;background:linear-gradient(135deg,var(--green),#1a7a5e);display:grid;place-items:center;color:var(--gold-l);text-align:center;font-size:14px;position:relative}
+.about-img:before{content:"";position:absolute;inset:18px;border:2px dashed rgba(243,231,192,.4);border-radius:14px}
+
+.about-photo{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.12)}
+.about-photo img{width:100%;height:440px;object-fit:cover;display:block}
+.about-photo span{position:absolute;left:16px;bottom:16px;right:16px;background:rgba(6,52,42,.85);color:#fff;padding:10px 14px;border-radius:10px;font-size:13px;border-left:3px solid var(--gold)}
+@media(max-width:860px){.about-photo img{height:280px}}
+/* programs */
+.programs{background:#fff}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prog{background:var(--cream);border-radius:16px;padding:30px;transition:.25s;border:1px solid transparent}
+.prog:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 14px 30px rgba(0,0,0,.07)}
+.icon{width:56px;height:56px;border-radius:14px;background:var(--green);display:grid;place-items:center;font-size:26px;margin-bottom:18px}
+.prog h3{color:var(--green);font-size:21px;margin-bottom:8px}
+.prog p{color:var(--muted);font-size:15px}
+
+/* founder */
+.founder{background:var(--green);color:#fff}
+.founder .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.f-photo{position:relative}
+.f-photo img{width:100%;border-radius:20px;display:block;position:relative;z-index:2}
+.f-photo:before{content:"";position:absolute;top:22px;left:22px;right:-22px;bottom:-22px;border:3px solid var(--gold);border-radius:20px}
+.founder h2{font-size:clamp(30px,4vw,44px);margin-bottom:6px}
+.role{color:var(--gold);font-weight:600;margin-bottom:22px}
+.founder blockquote{font-family:"Playfair Display",serif;font-size:21px;font-style:italic;border-left:3px solid var(--gold);padding-left:20px;margin:0 0 22px;color:#f1f5f3}
+.founder p{color:#cfe0d8;margin-bottom:14px}
+
+.postnom{display:inline-block;color:var(--gold-l);font-weight:600;letter-spacing:1.5px;font-size:14px;border:1px solid rgba(201,162,39,.5);border-radius:30px;padding:5px 14px;margin:4px 0 10px}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.creds div{background:rgba(255,255,255,.07);border:1px solid rgba(201,162,39,.35);border-radius:12px;padding:12px 14px}
+.creds b{display:block;color:var(--gold);font-size:14px}
+.creds span{color:#cfe0d8;font-size:13px}
+@media(max-width:860px){.creds{grid-template-columns:1fr}}
+/* gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;grid-auto-flow:dense}
+.g{margin:0;border-radius:14px;overflow:hidden;position:relative;cursor:pointer;background:#dfe7e2}
+.g img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.g:hover img{transform:scale(1.06)}
+.g figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;color:#fff;font-size:13px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+.g.big{grid-column:span 2;grid-row:span 2}.g.wide{grid-column:span 2}.g.full{grid-column:1/-1;grid-row:span 2}.g.tall{grid-row:span 2}
+.lb{position:fixed;inset:0;background:rgba(3,20,16,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb figure{margin:0;max-width:1000px;text-align:center}
+.lb img{max-width:100%;max-height:78vh;border-radius:10px}
+.lb figcaption{color:#e9efe9;margin-top:12px}
+.lbx,.lbn{background:rgba(255,255,255,.12);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:24px;cursor:pointer;flex:none}
+.lbx{position:absolute;top:18px;right:18px}
+.lbn{margin:0 10px}
+@media(max-width:860px){.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.g.tall{grid-row:span 2}.lbn{position:absolute;bottom:24px}.lbn#lbp{left:30%}.lbn#lbn{right:30%}}
+/* news */
+.news{background:#fff}
+.post{border-radius:16px;overflow:hidden;background:var(--cream)}
+.pi.ph{display:grid;place-items:center;color:var(--gold-l);font-size:13px;letter-spacing:.5px}
+.pimg{width:100%;height:180px;object-fit:cover;display:block}
+.post .pi{height:180px;background:linear-gradient(135deg,var(--green),#2b8a6c)}
+.post div.c{padding:22px}
+.post small{color:var(--gold);font-weight:600}
+.post h3{color:var(--green);font-size:19px;margin:6px 0 8px}
+.post p{color:var(--muted);font-size:14px}
+
+/* donate */
+.donate{background:linear-gradient(120deg,var(--gold),#e0b935);text-align:center;padding:70px 0}
+.donate h2{color:var(--green-d);font-size:clamp(28px,4vw,40px);margin-bottom:10px}
+.donate p{color:#3b3210;margin-bottom:26px}
+.donate .btn{background:var(--green-d);color:#fff}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.info div{display:flex;gap:14px;margin-bottom:20px}
+.info b{display:block;color:var(--green)}
+.info span{color:var(--muted);font-size:15px}
+form{background:#fff;padding:30px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+input,textarea{width:100%;padding:13px 15px;border:1px solid #dde3df;border-radius:10px;margin-bottom:14px;font:inherit;background:var(--cream)}
+form .btn{border:0;cursor:pointer;width:100%;background:var(--green);color:#fff}
+
+footer{background:var(--green-d);color:#a9c2b7;padding:50px 0 24px;font-size:14px}
+footer .wrap.cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:30px}
+footer h4{color:#fff;margin-bottom:12px}
+footer li{list-style:none;margin-bottom:7px}
+.copy{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center}
+.dev{margin-top:8px;font-size:13px;color:#8fae9f}.dev b{color:var(--gold)}.dev a{color:#cfe0d8;white-space:nowrap}.dev a:hover{color:var(--gold)}
+.note{background:#fff8e1;border:1px dashed var(--gold);color:#6b5a1a;text-align:center;font-size:13px;padding:8px}
+
+@media(max-width:860px){
+ .links{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;padding:20px;gap:16px;box-shadow:0 10px 20px rgba(0,0,0,.08)}
+ .links.open{display:flex}
+ .menu{display:block}
+ .hero .wrap,.about .wrap,.founder .wrap,.contact .wrap,footer .wrap.cols{grid-template-columns:1fr}
+ .hero{padding:60px 0 100px}
+ .stats .wrap{grid-template-columns:1fr 1fr;gap:20px}
+ .stat{border:0}
+ .grid3{grid-template-columns:1fr}
+ .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+ .mv{grid-template-columns:1fr}
+ .about-img{height:260px}
+ section{padding:65px 0}
+ .f-photo{max-width:380px;margin:0 auto 20px}
+}
+</style>
+</head>
+<body>
+
+
+<div class="topbar"><div class="wrap"><span>✉ info@aamaigorofoundation.org</span><span>☎ +234 000 000 0000 &nbsp;|&nbsp; Abuja, Nigeria</span></div></div>
+
+<nav><div class="wrap">
+ <a href="#home" class="logo"><div class="seal">AAM</div><div><b>Barr. A.A. Maigoro</b><small>Foundation</small></div></a>
+ <div class="links" id="links">
+  <a href="#about">About</a><a href="#programs">Our Work</a><a href="#founder">Founder</a><a href="#gallery">Gallery</a><a href="#news">News</a><a href="#contact">Contact</a>
+  <a href="#donate" class="btn btn-gold" style="padding:10px 20px">Support Us</a>
+ </div>
+ <button class="menu" onclick="document.getElementById('links').classList.toggle('open')">☰</button>
+</div></nav>
+
+<header class="hero" id="home"><div class="wrap">
+ <div>
+  <span class="tag">Barr. A.A. Maigoro Foundation</span>
+  <h1>Empowering Lives, <span>Building Hope</span> in Our Communities</h1>
+  <p>Committed to education, justice, health and empowerment, giving every person the chance to live with dignity and purpose.</p>
+  <div class="cta"><a href="#programs" class="btn btn-gold">Explore Our Work</a><a href="#contact" class="btn btn-line">Get Involved</a></div>
+ </div>
+ <div class="hero-card">
+  <h3>What We Stand For</h3>
+  <ul>
+   <li>🎓 Education & scholarships</li>
+   <li>⚖️ Free legal aid & advocacy</li>
+   <li>🏥 Community health outreach</li>
+   <li>🤝 Youth & women empowerment</li>
+   <li>🍲 Support for widows & orphans</li>
+  </ul>
+ </div>
+</div></header>
+
+<div class="stats"><div class="wrap">
+ <div class="stat"><b data-n="1000">0</b><span>Lives Impacted</span></div>
+ <div class="stat"><b data-n="100">0</b><span>Scholarships Awarded</span></div>
+ <div class="stat"><b data-n="2000">0</b><span>Communities Reached</span></div>
+ <div class="stat"><b data-n="10">0</b><span>Outreach Projects</span></div>
+</div></div>
+<script>{const els=document.querySelectorAll('.stat b[data-n]');const run=()=>els.forEach(e=>{const n=+e.dataset.n,t0=performance.now();const f=now=>{const p=Math.min(1,(now-t0)/1400);e.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString()+'+';if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(e=>e.textContent=(+e.dataset.n).toLocaleString()+'+')}else{const io=new IntersectionObserver(x=>{if(x[0].isIntersecting){run();io.disconnect()}});io.observe(document.querySelector('.stats'))}}</script>
+
+<section class="about" id="about"><div class="wrap">
+ <div>
+  <span class="tag">About Us</span>
+  <h2>A Foundation Rooted in Service and Justice</h2>
+  <p>The Barr. A.A. Maigoro Foundation is a non-profit organisation founded to uplift vulnerable people and strengthen communities through education, access to justice and humanitarian support.</p>
+  <p>Guided by integrity and compassion, we work with local leaders, volunteers and partners to deliver programmes that create lasting change.</p>
+  <div class="mv">
+   <div><h4>Our Mission</h4><p>To empower the less privileged through education, legal support and sustainable community programmes.</p></div>
+   <div><h4>Our Vision</h4><p>A just society where every person has the opportunity to thrive.</p></div>
+  </div>
+ </div>
+ <div class="about-photo"><img src="images/handshake.jpg" alt="Barr. A.A. Maigoro greeting players at the foundation football competition"><span>Barr. A.A. Maigoro Foundation Football Competition 2025</span></div>
+</div></section>
+
+<section class="programs" id="programs"><div class="wrap">
+ <div class="head"><span class="tag">Our Work</span><h2>Programmes That Change Lives</h2><p>Focused initiatives designed to meet real needs in our communities.</p></div>
+ <div class="grid3">
+  <div class="prog"><div class="icon">🎓</div><h3>Education Support</h3><p>Scholarships, school materials and fee support for brilliant but indigent students.</p></div>
+  <div class="prog"><div class="icon">⚖️</div><h3>Legal Aid</h3><p>Free legal advice and representation for those who cannot afford access to justice.</p></div>
+  <div class="prog"><div class="icon">🏥</div><h3>Health Outreach</h3><p>Free medical screening, drugs and health awareness campaigns in rural areas.</p></div>
+  <div class="prog"><div class="icon">⚽</div><h3>Youth &amp; Sports Development</h3><p>Football competitions, skills acquisition and support that keep young people engaged and productive.</p></div>
+  <div class="prog"><div class="icon">👩‍👧</div><h3>Women & Widows</h3><p>Grants, trade support and welfare packages for women and widows.</p></div>
+  <div class="prog"><div class="icon">🤲</div><h3>Humanitarian Relief</h3><p>Food, clothing and emergency support for displaced and vulnerable families.</p></div>
+ </div>
+</div></section>
+
+<section class="founder" id="founder"><div class="wrap">
+ <div class="f-photo"><img src="images/founder.jpg" alt="Founder"></div>
+ <div>
+  <span class="tag">Meet the Founder</span>
+  <h2>Barr. Aliyu Anas <span style="color:var(--gold-l);font-size:.6em">(A.A. Maigoro)</span></h2>
+  <div class="postnom">DL, LL.B, LL.M, DDP, MSL, MIGL, SLP</div>
+  <div class="role">Senior Assistant (Legal) to the Honourable Minister of Defence</div>
+  <blockquote>“The law is not just to argue. It is to protect.”</blockquote>
+  <p>Barr. Aliyu is a disciplined advocate and strategist. His legal foundation was formed at Ahmadu Bello University, Zaria, where he earned a Diploma and an LL.B in Civil Law, both with distinction. He was called to the Nigerian Bar after training at the Nigerian Law School, Kano Campus.</p>
+  <p>Leadership defines his career. He served as Senior Advocate at ABU Zaria and the Nigerian Law School Kano, and as President of the Nasarawa State Students Association. He is also Principal Partner &amp; Lead Counsel at Haam Legal Consult, practising in property law, security &amp; military law and civil disputes.</p>
+  <div class="creds">
+   <div><b>🎓 ABU Zaria</b><span>Diploma &amp; LL.B (Distinction)</span></div>
+   <div><b>⚖️ Called to Bar</b><span>Nigerian Law School, Kano</span></div>
+   <div><b>🏛️ Haam Legal Consult</b><span>Principal Partner &amp; Lead Counsel</span></div>
+   <div><b>🛡️ Ministry of Defence</b><span>Senior Assistant (Legal) to the Minister</span></div>
+  </div>
+  <a href="#contact" class="btn btn-gold" style="margin-top:22px">Partner With Us</a>
+ </div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+ <div class="head"><span class="tag">Gallery</span><h2>Our Work in Pictures</h2><p>Moments from our school visits, community projects and the Football Competition 2025. Tap any photo to view it full size.</p></div>
+ <div class="gallery-grid"><figure class="g big" data-i="0"><img src="images/school-assembly.jpg" alt="Addressing pupils during a school visit" loading="lazy"><figcaption>Addressing pupils during a school visit</figcaption></figure><figure class="g tall" data-i="1"><img src="images/school-address.jpg" alt="Speaking to pupils at a school visit" loading="lazy"><figcaption>Speaking to pupils at a school visit</figcaption></figure><figure class="g tall" data-i="2"><img src="images/pupils-gather.jpg" alt="Pupils gather to welcome the foundation" loading="lazy"><figcaption>Pupils gather to welcome the foundation</figcaption></figure><figure class="g tall" data-i="3"><img src="images/books-distribution.jpg" alt="Handing exercise books to a pupil" loading="lazy"><figcaption>Handing exercise books to a pupil</figcaption></figure><figure class="g tall" data-i="4"><img src="images/solar-handover.jpg" alt="Handing over solar streetlights" loading="lazy"><figcaption>Handing over solar streetlights</figcaption></figure><figure class="g tall" data-i="5"><img src="images/solar-prayer.jpg" alt="Prayers at the solar streetlight donation" loading="lazy"><figcaption>Prayers at the solar streetlight donation</figcaption></figure><figure class="g tall" data-i="6"><img src="images/medal.jpg" alt="Medals for the players" loading="lazy"><figcaption>Medals for the players</figcaption></figure><figure class="g big" data-i="7"><img src="images/final-banner.jpg" alt="Football Competition 2025 – Final, 20 September 2025" loading="lazy"><figcaption>Football Competition 2025 – Final, 20 September 2025</figcaption></figure><figure class="g " data-i="8"><img src="images/trophy-presentation.jpg" alt="Presenting the trophy to the winning captain" loading="lazy"><figcaption>Presenting the trophy to the winning captain</figcaption></figure><figure class="g " data-i="9"><img src="images/address.jpg" alt="Barr. Maigoro addressing the crowd" loading="lazy"><figcaption>Barr. Maigoro addressing the crowd</figcaption></figure><figure class="g wide" data-i="10"><img src="images/kickoff.jpg" alt="Ceremonial kick-off of the final" loading="lazy"><figcaption>Ceremonial kick-off of the final</figcaption></figure><figure class="g " data-i="11"><img src="images/trophy-table.jpg" alt="Trophy and medals ready for the winners" loading="lazy"><figcaption>Trophy and medals ready for the winners</figcaption></figure><figure class="g " data-i="12"><img src="images/handshake.jpg" alt="Greeting the players before the match" loading="lazy"><figcaption>Greeting the players before the match</figcaption></figure><figure class="g wide" data-i="13"><img src="images/farewell.jpg" alt="Waving goodbye at the close of the final" loading="lazy"><figcaption>Waving goodbye at the close of the final</figcaption></figure></div>
+</div></section>
+<div class="lb" id="lb"><button class="lbx" id="lbx" aria-label="Close">✕</button><button class="lbn" id="lbp" aria-label="Previous">‹</button><figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption></figure><button class="lbn" id="lbn" aria-label="Next">›</button></div>
+<script>{const caps=[['school-assembly', 'Addressing pupils during a school visit'], ['school-address', 'Speaking to pupils at a school visit'], ['pupils-gather', 'Pupils gather to welcome the foundation'], ['books-distribution', 'Handing exercise books to a pupil'], ['solar-handover', 'Handing over solar streetlights'], ['solar-prayer', 'Prayers at the solar streetlight donation'], ['medal', 'Medals for the players'], ['final-banner', 'Football Competition 2025 – Final, 20 September 2025'], ['trophy-presentation', 'Presenting the trophy to the winning captain'], ['address', 'Barr. Maigoro addressing the crowd'], ['kickoff', 'Ceremonial kick-off of the final'], ['trophy-table', 'Trophy and medals ready for the winners'], ['handshake', 'Greeting the players before the match'], ['farewell', 'Waving goodbye at the close of the final']];
+const lb=document.getElementById('lb'),im=document.getElementById('lbi'),cp=document.getElementById('lbc');let k=0;
+const show=i=>{k=(i+caps.length)%caps.length;im.src='images/'+caps[k][0]+'.jpg';cp.textContent=caps[k][1];lb.classList.add('on')};
+document.querySelectorAll('.g').forEach(e=>e.onclick=()=>show(+e.dataset.i));
+document.getElementById('lbx').onclick=()=>lb.classList.remove('on');
+document.getElementById('lbp').onclick=e=>{e.stopPropagation();show(k-1)};
+document.getElementById('lbn').onclick=e=>{e.stopPropagation();show(k+1)};
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('on')};
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1)});}</script>
+<section class="news" id="news"><div class="wrap">
+ <div class="head"><span class="tag">Latest Updates</span><h2>News & Events</h2></div>
+ <div class="grid3">
+  <div class="post"><img class="pimg" src="images/trophy-presentation.jpg" alt="Trophy presentation"><div class="c"><small>20 SEPT 2025 · SPORTS</small><h3>Foundation Football Competition 2025 final</h3><p>Barr. A.A. Maigoro presented the trophy and medals to the winners at the final of the foundation's football competition.</p></div></div>
+  <div class="post"><img class="pimg" src="images/books-distribution.jpg" alt="Learning materials handed to a pupil"><div class="c"><small>EDUCATION</small><h3>Foundation visits schools, distributes learning materials</h3><p>The foundation visited schools, addressed pupils and handed out exercise books and learning materials to support their education.</p></div></div>
+  <div class="post"><img class="pimg" src="images/solar-handover.jpg" alt="Solar streetlights handed over"><div class="c"><small>COMMUNITY</small><h3>Solar streetlights donated to communities</h3><p>The foundation donated solar-powered streetlights to communities to improve lighting and safety at night.</p></div></div>
+ </div>
+</div></section>
+
+<div class="donate" id="donate"><div class="wrap">
+ <h2>Together, We Can Do More</h2>
+ <p>Your support helps us reach more families, students and communities.</p>
+ <a href="#contact" class="btn">Support the Foundation</a>
+</div></div>
+
+<section class="contact" id="contact"><div class="wrap">
+ <div class="info">
+  <span class="tag">Contact Us</span>
+  <h2 style="color:var(--green);font-size:36px;margin-bottom:24px">Get In Touch</h2>
+  <div>📍<p><b>Address</b><span>Office address, Abuja, Nigeria</span></p></div>
+  <div>☎<p><b>Phone</b><span>+234 000 000 0000</span></p></div>
+  <div>✉<p><b>Email</b><span>info@aamaigorofoundation.org</span></p></div>
+ </div>
+ <form onsubmit="event.preventDefault();this.innerHTML='<h3 style=&quot;color:#0b4d3b&quot;>Thank you! We will be in touch.</h3>'">
+  <input placeholder="Full name" required>
+  <input type="email" placeholder="Email address" required>
+  <input placeholder="Phone number">
+  <textarea rows="4" placeholder="Your message"></textarea>
+  <button class="btn">Send Message</button>
+ </form>
+</div></section>
+
+<footer>
+ <div class="wrap cols">
+  <div><div class="logo" style="margin-bottom:14px"><div class="seal">AAM</div><div><b style="color:#fff">Barr. A.A. Maigoro</b><small style="color:#a9c2b7">Foundation</small></div></div><p>Empowering lives and building hope through education, justice and humanitarian service.</p></div>
+  <div><h4>Quick Links</h4><ul><li><a href="#about">About</a></li><li><a href="#programs">Our Work</a></li><li><a href="#founder">Founder</a></li><li><a href="#gallery">Gallery</a></li></ul></div>
+  <div><h4>Follow Us</h4><ul><li>Facebook</li><li>X (Twitter)</li><li>Instagram</li><li>YouTube</li></ul></div>
+ </div>
+ <div class="wrap copy">© 2026 Barr. A.A. Maigoro Foundation. All rights reserved.<div class="dev">Developed by <b>Shamsuddeen D</b> · <a href="tel:+2348065388687">+234 806 538 8687</a></div></div>
+</footer>
+</body>
+</html>
